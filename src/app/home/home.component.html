@@ -1,0 +1,70 @@
+<ActionBar class="action-bar">
+  <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+  <NavigationButton
+    ios:visibility="collapsed"
+    icon="res://menu"
+    (tap)="onDrawerButtonTap()"
+  ></NavigationButton>
+  <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+  <ActionItem
+    icon="res://navigation/menu"
+    android:visibility="collapsed"
+    (tap)="onDrawerButtonTap()"
+    ios.position="left"
+  >
+  </ActionItem>
+  <Label class="action-bar-title" text="Home"></Label>
+</ActionBar>
+
+<StackLayout class="page">
+  <GridLayout rows="auto, *" columns="auto, *" margin="16dp">
+    <Label
+      row="0"
+      col="0"
+      text="Display NGRX Label"
+      verticalAlignment="middle"
+      horizontalAlignment="Left"
+      fontSize="16dp"
+      textWrap="true"
+    ></Label>
+    <Switch
+      row="0"
+      col="1"
+      (checkedChange)="onSwitchChecked($event)"
+      horizontalAlignment="Left"
+      class="switch"
+    ></Switch>
+    <Label
+      row="1"
+      colSpan="1"
+      colSpan="2"
+      verticalAlignment="middle"
+      *ngIf="showLabel"
+      horizontalAlignment="center"
+      text="I am a NGRX LABEL!!!"
+      textWrap="true"
+    ></Label>
+  </GridLayout>
+</StackLayout>
+
+<!-- 
+<GridLayout class="page page-content">
+<Label class="page-icon fa" text="&#xf015;"></Label>
+  <Label class="page-placeholder" text="Welcome to Tropeo rrr"></Label>
+  <Label
+    class="h3 m-15"
+    [text]="firstSwitchState"
+    textWrap="true"
+    row="0"
+    col="0"
+  ></Label>
+  <Switch class="m-15" checked="{{ showLabel }}" row="0" col="1"></Switch> 
+</GridLayout>
+-->
