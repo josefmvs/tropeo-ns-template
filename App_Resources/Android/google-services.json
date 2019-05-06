@@ -1,0 +1,164 @@
+{
+  "project_info": {
+    "project_number": "1098572196291",
+    "firebase_url": "https://tropeo-ef502.firebaseio.com",
+    "project_id": "tropeo-ef502",
+    "storage_bucket": "tropeo-ef502.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098572196291:android:fca9bd1895f18712",
+        "android_client_info": {
+          "package_name": "com.example.firebaseshowcase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098572196291-jie58si2gt85rkav8o89c8456k3qtvvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUnNV_C7fSpovTr57ZTj7Bp-tQ5Bc4X-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098572196291-jie58si2gt85rkav8o89c8456k3qtvvh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098572196291:android:7567f6a7ee585d9c",
+        "android_client_info": {
+          "package_name": "com.example.firephoneauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098572196291-jie58si2gt85rkav8o89c8456k3qtvvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUnNV_C7fSpovTr57ZTj7Bp-tQ5Bc4X-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098572196291-jie58si2gt85rkav8o89c8456k3qtvvh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098572196291:android:57f9838b2de5f2cc",
+        "android_client_info": {
+          "package_name": "com.example.firestorecrud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098572196291-jie58si2gt85rkav8o89c8456k3qtvvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUnNV_C7fSpovTr57ZTj7Bp-tQ5Bc4X-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098572196291-jie58si2gt85rkav8o89c8456k3qtvvh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098572196291:android:e03142b8c59656ff",
+        "android_client_info": {
+          "package_name": "com.tropeo.tropoeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098572196291-8q6gu2pfdjgno67ommdjstgu37chnjj0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tropeo.tropoeapp",
+            "certificate_hash": "4e1061e61cc3d7d3950daf8dcc7a9b1da978379a"
+          }
+        },
+        {
+          "client_id": "1098572196291-jie58si2gt85rkav8o89c8456k3qtvvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUnNV_C7fSpovTr57ZTj7Bp-tQ5Bc4X-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098572196291-jie58si2gt85rkav8o89c8456k3qtvvh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098572196291:android:af11bdb8b68c1025",
+        "android_client_info": {
+          "package_name": "com.yourcompany.flutterstarter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098572196291-jie58si2gt85rkav8o89c8456k3qtvvh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUnNV_C7fSpovTr57ZTj7Bp-tQ5Bc4X-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098572196291-jie58si2gt85rkav8o89c8456k3qtvvh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
