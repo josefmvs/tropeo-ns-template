@@ -1,0 +1,105 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Dashboard"></Label>
+</ActionBar>
+
+
+<GridLayout>
+    <ScrollView class="page" style="background-color: lightgray;">
+        <StackLayout>
+            <!-- On Android the card view plugin requires adding an external library
+                therefore it can't be demoed on Playground. You will have to download this project
+                and build it locally to try it on Android -->
+            <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                <StackLayout class="section-container">
+                        <Label text="Chart Here ccc"></Label>
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+            </CardView>
+            <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                <StackLayout class="section-container">
+                        <Label text="Chart Here xxx"></Label>
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+            </CardView>
+            <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                <StackLayout class="section-container">
+                        <Label text="Chart Here xxx"></Label>
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+            </CardView>
+            <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                <StackLayout class="section-container">
+                        <Label text="Chart Here xxx"></Label>
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+            </CardView>
+            <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                <StackLayout class="section-container">
+                        <Label text="Chart Here xxx"></Label>
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+            </CardView>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>
+
+
+        <!-- <ScrollView [isScrollEnabled]="true">
+                <StackLayout class="section-container">
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+                <StackLayout class="section-container">
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+                <StackLayout class="section-container">
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+                <StackLayout class="section-container">
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+                <StackLayout class="section-container">
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+                <StackLayout class="section-container">
+                        <Label text="Chart Here"></Label>
+                </StackLayout>
+        </ScrollView> -->
+
+
+
+<!-- <StackLayout> -->
+    <!-- <GridLayout columns="auto, *, auto">
+        <StackLayout class="section-container">
+                <Label text="Chart Here"></Label>
+        </StackLayout>
+        <StackLayout class="section-container">
+                <Label text="Chart Here"></Label>
+        </StackLayout>
+        <StackLayout class="section-container">
+                <Label text="Chart Here"></Label>
+        </StackLayout>
+        <StackLayout class="section-container">
+                <Label text="Chart Here"></Label>
+        </StackLayout>
+        <StackLayout class="section-container">
+                <Label text="Chart Here"></Label>
+        </StackLayout>
+    </GridLayout> -->
+   
+    <!-- <Label text="Label 2" width="50" height="50" backgroundColor="green"></Label>
+    <Label text="Label 3" width="50" height="50" backgroundColor="blue"></Label>
+    <Label text="Label 4" width="50" height="50" backgroundColor="yellow"></Label>
+</StackLayout> -->
