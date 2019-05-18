@@ -119,7 +119,7 @@ export class DashboardComponent implements OnInit {
 
 	add(): void {
 		console.log('add button pressed');
-		this._routerExtensions.navigate([ 'contact' ], {
+		this._routerExtensions.navigate([ 'contact/contact-edit' ], {
 			animated: true,
 			transition: {
 				name: 'slide',
