@@ -5,6 +5,8 @@ import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from 'nat
 import { filter } from 'rxjs/operators';
 import * as app from 'tns-core-modules/application';
 const firebase = require('nativescript-plugin-firebase');
+import { registerElement } from 'nativescript-angular/element-registry';
+registerElement('Fab', () => require('nativescript-floatingactionbutton').Fab);
 
 @Component({
 	moduleId: module.id,

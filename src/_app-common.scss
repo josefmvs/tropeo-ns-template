@@ -100,3 +100,68 @@ $sidedrawer-list-icon-size: 20;
 	// border-color: #f1f5f8;
 	// border-width: 1;
 }
+
+TabView {
+	font-weight: bold;
+}
+
+.full {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.rocket {
+	background-image: url('~/images/rocket-raccoon.jpg');
+}
+
+.harley {
+	background-image: url('~/images/harley-quinn.jpg');
+}
+
+.hulk {
+	background-image: url('~/images/hulk.jpg');
+}
+
+.fab-button {
+	height: 70;
+	width: 70; /// this is required on iOS - Android does not require width so you might need to adjust styles
+	margin: 15;
+	background-color: #ff4081;
+	horizontal-align: right;
+	vertical-align: bottom;
+}
+
+// .fas {
+// 	font-family: "Font Awesome 5 Free", "FontAwesome";
+// }
+
+/* >> icon-font-css-class-def */
+.far {
+	font-family: "Font Awesome 5 Free", "FontAwesome";
+}
+
+.fab {
+	font-family: "Font Awesome 5 Brands", "FontAwesome";
+}
+
+.fas {
+	font-family: "Font Awesome 5 Free", "FontAwesome";
+}
+
+.ico {
+	font-family: "IcoMoon-Free";
+}
+/* << icon-font-css-class-def */
+.border_style {
+	border-width: 5;
+	border-color: black;
+	padding: 5;
+	margin-bottom: 2;
+}
+
+// Label {
+// 	font-size: 20;
+// 	color: #66ccff;
+// 	margin: 8;
+// }
