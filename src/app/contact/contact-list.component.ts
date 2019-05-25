@@ -6,28 +6,36 @@ import { ItemState } from './../states/item.state';
 import * as itemActions from './../actions/item.actions';
 import * as fromItems from './../reducers/item.reducer';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { ItemActions } from '../actions/item.actions';
+// import { todo } from
 
 @Component({
-	selector: 'ContactEdit',
+	selector: 'ContactList',
 	moduleId: module.id,
-	templateUrl: './contact-edit.component.html'
+	templateUrl: './contact-list.component.html'
 })
-export class ContactEditComponent implements OnInit {
+export class ContactListComponent implements OnInit {
 	constructor(private _routerExtensions: RouterExtensions, private store: Store<ItemState>) {
 		// Use the component constructor to inject providers.
-		
-		
 	}
 
 	ngOnInit(): void {}
 
 	onDrawerButtonTap(): void {
+		console.log();
+
 		const sideDrawer = <RadSideDrawer>app.getRootView();
 		sideDrawer.showDrawer();
 	}
 
-	onBackButtonTap(): void {
-		this._routerExtensions.backToPreviousPage();
+	add(): void {
+		console.log('add button pressed');
+		this._routerExtensions.navigate([ 'contact/contact-add' ], {
+			animated: true,
+			transition: {
+				name: 'slide',
+				duration: 200,
+				curve: 'ease'
+			}
+		});
 	}
 }

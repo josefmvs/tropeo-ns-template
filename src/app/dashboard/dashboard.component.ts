@@ -10,6 +10,7 @@ import * as fromItems from './../reducers/dashboard.reducer';
 import { Page, View } from 'tns-core-modules/ui/page';
 import { SegmentedBar, SegmentedBarItem } from 'tns-core-modules/ui/segmented-bar';
 import { RouterExtensions } from 'nativescript-angular/router';
+import { action } from 'tns-core-modules/ui/dialogs';
 
 export class DataItem {
 	constructor(public itemDesc: string) {}
@@ -54,6 +55,39 @@ export class DashboardComponent implements OnInit {
 			segmentedBarItem.title = 'View ' + i;
 			this.segmentItems.push(segmentedBarItem);
 		}
+	}
+
+	displayActionDialog() {
+		// >> action-dialog-code
+		let options = {
+			// title: 'Race selection',
+			// message: 'Choose your race',
+			cancelButtonText: 'Cancel',
+			actions: [ 'Add Contact', 'Add Activity' ]
+		};
+
+		action(options).then((action) => {
+			console.log(action);
+			switch (action) {
+				case 'Add Contact':
+					console.log('add button pressed');
+					this._routerExtensions.navigate([ 'contact/contact-add' ], {
+						animated: true,
+						transition: {
+							name: 'slide',
+							duration: 200,
+							curve: 'ease'
+						}
+					});
+					break;
+				case 'Add Activity':
+					// code block
+					break;
+				default:
+					break;
+			}
+		});
+		// << action-dialog-code
 	}
 
 	onSelectedIndexChange(args) {
@@ -119,7 +153,7 @@ export class DashboardComponent implements OnInit {
 
 	add(): void {
 		console.log('add button pressed');
-		this._routerExtensions.navigate([ 'contact/contact-edit' ], {
+		this._routerExtensions.navigate([ 'contact/contact-add' ], {
 			animated: true,
 			transition: {
 				name: 'slide',

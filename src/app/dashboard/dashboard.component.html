@@ -19,7 +19,7 @@
         <Label text="&#xf0f9;" class="fab"></Label>
     </ActionItem> -->
     <Label class="action-bar-title" text="Dashboard"></Label>
-    <ActionItem ios.position="right" android.position="popup" ios.systemIcon="4" android.systemIcon="ic_Add"></ActionItem>
+    <!-- <ActionItem ios.position="right" android.position="popup" ios.systemIcon="4" android.systemIcon="ic_Add"></ActionItem> -->
 </ActionBar>
 
 <!-- Correct implementation of tabview -->
@@ -37,33 +37,11 @@
         <StackLayout>
            
             <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
-                <!-- <StackLayout height="300" class="section-container">
-                        <i class="fas fa-calendar-minus"></i>
-                        <Label text="&#xf013;" class="fa"></Label>
-                        <Label text="&#xf09b;" class="fa"></Label>
-                        <Label text="Chart Here ccc"></Label>
-                        <Span text="&#xf09b;" class="fa"></Span>
+                <StackLayout height="300" class="section-container">
+                        <Label text="Chart Here"></Label>
                         <circularProgressBar [size]="size[2]" [progress]="progress[2]"></circularProgressBar>
-                </StackLayout> -->
-                <StackLayout class="m-16" horizontalAlignment="center">
-                    <Label text="Icon Fonts demonstration" fontSize="18"></Label>
-
-                    <!-- >> icon-font-xml-def -->
-                    <!-- Using fa-regular-400.ttf -->
-                    <Label text="&#xf019;" class="far"></Label>
-
-                    <!-- Using fa-brands-400.ttf -->
-                    <Label text="&#xf0f9;" class="fab"></Label>
-                    <Icon text="&#xf053;" fontAttributes="Bold"></Icon>
-                    <!-- Using fa-solid-900.ttf with FormattedString -->
-                    <Label class="fas" textWrap="true">
-                        <FormattedString>
-                            <Span text="&#xf053;" fontAttributes="Bold"></Span>
-                        </FormattedString>
-                    </Label>
-                    
-               
                 </StackLayout>
+              
             </CardView>
             <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
                 <StackLayout height="340"  class="section-container">
@@ -105,36 +83,13 @@
                             </ListView>
                     </StackLayout>
                    
-                </CardView>
-                <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
-                        <StackLayout height="340"  class="section-container">
-                                <GridLayout height="40" columns="*,*" backgroundColor="white">
-                                    <StackLayout col="0" orientation="vertical">
-                                        <Button text="All" (tap)="onTap($event)"></Button>
-                                    </StackLayout>
-                                    <StackLayout col="1" column="1" orientation="vertical">
-                                        <Button text="Favorites" (tap)="onTap($event)"></Button>
-                                    </StackLayout>
-                                </GridLayout>
-                                
-                                <ListView height="300" class="list-group" [items]="data3" (itemTap)="onItemTap($event)">
-                                    <ng-template let-item="item">
-                                        <GridLayout class="list-group-item" rows="*" columns="auto, *">
-                                            <Label row="0" col="1" [text]="item.text"></Label>
-                                        </GridLayout>
-                                    </ng-template>
-                                </ListView>
-                                <Button text="show" class="t-20 text-center c-black" (tap)="onFabTap()"></Button>
-                        </StackLayout>
-                       
-                </CardView>
-
+            </CardView>
         </StackLayout>
-        <!-- <FAB icon="res://menu" rippleColor="#f1f1f1" text="&#xf013;" class="fab-button fa">
-        </FAB> -->
     </ScrollView>
-        <FAB id="dashboard-fab" (tap)="add()" (loaded)="buttonLoaded()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1" text="&#xf013;" class="fab-button fa">
-        </FAB>
+    <FAB id="dashboard-fab" (tap)="displayActionDialog()" (loaded)="buttonLoaded()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1" text="&#xf013;" class="fab-button fa">
+    </FAB>
+        <!-- <FAB id="dashboard-fab" (tap)="add()" (loaded)="buttonLoaded()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1" text="&#xf013;" class="fab-button fa">
+        </FAB> -->
 </GridLayout>
   
 

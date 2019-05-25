@@ -16,6 +16,25 @@
 </ActionBar>
 
 <GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf002;"></Label>
-    <Label class="page-placeholder" text="testst"></Label>
+    <!-- <Label class="page-icon fa" text="&#xf002;"></Label>
+    <Label class="page-placeholder" text="testst"></Label> -->
+    <StackLayout class="m-16" horizontalAlignment="center">
+        <Label text="Icon Fonts demonstration" fontSize="18"></Label>
+
+        <!-- >> icon-font-xml-def -->
+        <!-- Using fa-regular-400.ttf -->
+        <Label text="&#xf019;" class="far"></Label>
+
+        <!-- Using fa-brands-400.ttf -->
+        <Label text="&#xf0f9;" class="fab"></Label>
+        <Icon text="&#xf053;" fontAttributes="Bold"></Icon>
+        <!-- Using fa-solid-900.ttf with FormattedString -->
+        <Label class="fas" textWrap="true">
+            <FormattedString>
+                <Span text="&#xf053;" fontAttributes="Bold"></Span>
+            </FormattedString>
+        </Label>
+        
+   
+    </StackLayout>
 </GridLayout>

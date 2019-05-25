@@ -9,6 +9,9 @@ const firebase = require('nativescript-plugin-firebase');
 	templateUrl: './search.component.html'
 })
 export class SearchComponent implements OnInit {
+
+	glyphs = [];
+
 	constructor() {
 		// Use the component constructor to inject providers.
 	}
@@ -23,6 +26,15 @@ export class SearchComponent implements OnInit {
 				console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
 			});
 		});
+
+		for (let charCode = 0xe903; charCode <= 0xeaea; charCode++) {
+			let glyph = {
+				icon: String.fromCharCode(charCode),
+				code: charCode.toString(16)
+			};
+			this.glyphs.push(glyph);
+		}
+
 	}
 
 	onDrawerButtonTap(): void {
