@@ -17,6 +17,8 @@ export const initialTodoState: TodoState = adapter.getInitialState();
 export function todoReducers(state = initialTodoState, action: TodoActions.Actions) {
 	switch (action.type) {
 		case TodoActions.ADD_TODO:
+			console.log('reducer todo add: ' + action.payload.title);
+			
 			return adapter.addOne(action.payload, state);
 
 		case TodoActions.UPDATE_TODO:

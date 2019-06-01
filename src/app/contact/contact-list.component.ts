@@ -1,24 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import * as app from 'tns-core-modules/application';
-import { Store, select } from '@ngrx/store';
-import { ItemState } from './../states/item.state';
-import * as itemActions from './../actions/item.actions';
-import * as fromItems from './../reducers/item.reducer';
 import { RouterExtensions } from 'nativescript-angular/router';
-// import { todo } from
+import { Todo } from './../models/todo.model';
+import { TodoService } from './../service/todo.service';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'ContactList',
 	moduleId: module.id,
-	templateUrl: './contact-list.component.html'
+	templateUrl: './contact-list.component.html',
+	styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent implements OnInit {
-	constructor(private _routerExtensions: RouterExtensions, private store: Store<ItemState>) {
+	public todoSub: Observable<Todo>;
+	public todoList : Todo;
+
+	constructor(private _routerExtensions: RouterExtensions, private todoService:TodoService ) {
 		// Use the component constructor to inject providers.
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.todoSub = this.todoService.list();
+	}
+
+	public trackByToodFun(index, item) {
+      return item.id;
+    }
 
 	onDrawerButtonTap(): void {
 		console.log();
@@ -38,4 +46,8 @@ export class ContactListComponent implements OnInit {
 			}
 		});
 	}
+
+	 deleteRecord(id) {
+      this.todoService.remove(id);
+    }
 }

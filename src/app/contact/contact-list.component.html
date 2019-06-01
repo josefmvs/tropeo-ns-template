@@ -1,33 +1,65 @@
 <ActionBar class="action-bar">
-    <!-- 
+  <!-- 
       Use the NavigationButton as a side-drawer button in Android
       because ActionItems are shown on the right side of the ActionBar
       -->
-    <NavigationButton 
-      ios:visibility="collapsed"
-      icon="res://menu"
-      (tap)="onDrawerButtonTap()"
-    ></NavigationButton>
-    <!-- 
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <!-- 
       Use the ActionItem for IOS with position set to left. Using the
       NavigationButton as a side-drawer button in iOS is not possible,
       because its function is to always navigate back in the application.
       -->
-    <!-- <ActionItem
+  <!-- <ActionItem
       icon="res://navigation/menu"
       android:visibility="collapsed"
       (tap)="onDrawerButtonTap()"
       ios.position="left"
     >
     </ActionItem> -->
-    
-    <Label class="action-bar-title" text="Contact List"></Label>
-  </ActionBar>
-  
-  <GridLayout class="page page-content">
+
+  <Label class="action-bar-title" text="Contact List"></Label>
+</ActionBar>
+
+
+<ScrollView class="page">
+  <StackLayout>
+
+    <StackLayout class="list-group" width="100%" *ngFor="let todo of todoSub | async ; trackBy:trackByToodFun;">
+      <GridLayout style="background-color:lightblue;" class="list-group-item" rows="*" columns="auto, *">
+        <Label class="first-label" row="0" col="0" [text]="todo.title"></Label>
+        <Label row="0" col="1" [text]="todo.description"></Label>
+        <Button style="width: 150px;" row="0" col="2" class="btn btn-primary btn-active" id="button" text="Delete"
+          (tap)="deleteRecord(todo.id)"></Button>
+      </GridLayout>
+    </StackLayout>
+
+  </StackLayout>
+</ScrollView>
+<FAB id="dashboard-fab" (tap)="add()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1"
+  text="&#xf013;" class="fab-button fa">
+</FAB>
+<!-- <GridLayout class="page page-content">
     <Label class="page-icon fa" text="&#xf1ea;"></Label>
     <Label class="page-placeholder" text="contact list"></Label>
-  </GridLayout> 
-  <FAB id="dashboard-fab" (tap)="add()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1" text="&#xf013;" class="fab-button fa">
-  </FAB>
-  
+  </GridLayout>  -->
+<!-- <ScrollView>
+  <StackLayout>
+    <ListView [items]="todoList">
+      <ng-template let-item="item">
+        <Label [text]="item.title"></Label>
+      </ng-template>
+    </ListView>
+    <ListView class="list-group" [items]="todoSub">
+      <ng-template let-item="item">
+        <GridLayout class="list-group-item" rows="*" columns="auto, *">
+          
+          <Label row="0" col="0" [text]="item.title"></Label>
+          <Label row="0" col="1" [text]="item.description"></Label>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+  </StackLayout>
+</ScrollView>
+<FAB id="dashboard-fab" (tap)="add()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1"
+  text="&#xf013;" class="fab-button fa">
+</FAB> -->

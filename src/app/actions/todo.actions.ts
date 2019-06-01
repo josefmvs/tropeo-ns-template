@@ -8,7 +8,10 @@ export const UPDATE_TODO = '[TODO] Update';
 export class AddTodo implements Action {
 	readonly type = ADD_TODO;
 
-	constructor(public payload: Todo) {}
+	constructor(public payload: Todo) {
+		console.log('action todo add: ' + payload.title);
+
+	}
 }
 
 export class UpdateTodo implements Action {

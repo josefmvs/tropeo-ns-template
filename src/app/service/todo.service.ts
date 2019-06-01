@@ -18,10 +18,11 @@ export class TodoService {
     private todoById;
     constructor (private store: Store<TodoState> ) {
 
-
       this.allTodos = createSelector(
         fromTodoReducer.selectAll,
         (entities) => {
+          console.log("entities: " + JSON.stringify(entities));
+          
           return entities;
         }
       )
@@ -35,13 +36,15 @@ export class TodoService {
     }
 
     public add(data: Todo) {
+      console.log('service todo add: ' + data.title);
       data.id = new Date().getTime();
       this.store.dispatch(new TodoActions.AddTodo(data) )
     }
 
 
     public list() {
-      return this.store.pipe(select(this.allTodos));
+      let list = this.store.pipe(select(this.allTodos));
+      return list;
     }
 
     public remove(id: number) {

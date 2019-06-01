@@ -27,12 +27,28 @@
 </ActionBar>
 
 <GridLayout class="page page-content">
+  <StackLayout [formGroup]="signUpForm">
+
+    <StackLayout class="p-20">
+      <Label text="Count Todos" class="h1 text-center"></Label>
+      <Label [text]="todoSub.length" class="h1 text-center"></Label>
+    </StackLayout>
+    <TextField formControlName="title" hint="Title"></TextField>
+    <TextField formControlName="desc" hint="Description"></TextField>
+    <Button text="sign up" (tap)="onButtonTap()"></Button>
+  </StackLayout>
   <!-- <RadDataForm row="0" tkExampleTitle tkToggleNavButton [source]="todo"></RadDataForm> -->
 
-  <GridLayout rows="auto, *" columns="auto, *" margin="16dp">
-    <RadDataForm [source]="person" [metadata]="personMetadata"></RadDataForm>
-    <!-- <RadDataForm row="0" tkExampleTitle tkToggleNavButton [source]="person"></RadDataForm> -->
-    <!-- <RadDataForm tkExampleTitle tkToggleNavButton row="0" col="0" colSpan="2" [isReadOnly]="false" [source]="todo">
+  <!-- <GridLayout rows="auto, *" columns="auto, *" margin="16dp"> -->
+
+  <!-- <StackLayout class="p-20">
+      <Label text="Required Textfield" class="h1 text-center"></Label>
+      <TextField required hint="fill this out..." [(ngModel)]="textField" #element></TextField>
+      <Label [text]="element.className"></Label>
+      <Button text="" class="btn btn-primary"></Button>
+    </StackLayout> -->
+  <!-- <RadDataForm row="0" tkExampleTitle tkToggleNavButton [source]="person"></RadDataForm> -->
+  <!-- <RadDataForm tkExampleTitle tkToggleNavButton row="0" col="0" colSpan="2" [isReadOnly]="false" [source]="todo">
       <TKEntityProperty tkDataFormProperty name="title" displayName="Titles" index="0"></TKEntityProperty>
       
       <TKEntityProperty hintText="add desc" tkDataFormProperty name="description" displayName="Desc" index="1">
@@ -40,12 +56,12 @@
       </TKEntityProperty>
      
     </RadDataForm> -->
-    <!-- <Label row="1" col="0" text="{{person.name}}" verticalAlignment="middle" horizontalAlignment="Left" fontSize="16dp"
+  <!-- <Label row="1" col="0" text="{{person.name}}" verticalAlignment="middle" horizontalAlignment="Left" fontSize="16dp"
       textWrap="true"></Label> -->
-    <!--<Switch row="0" col="1" (checkedChange)="onSwitchChecked($event)" horizontalAlignment="Left" class="switch">
+  <!--<Switch row="0" col="1" (checkedChange)="onSwitchChecked($event)" horizontalAlignment="Left" class="switch">
     </Switch>
     <Label row="1" colSpan="1" colSpan="2" verticalAlignment="middle" *ngIf="showLabel" horizontalAlignment="center"
       text="I am a NGRX LABEL!!!" textWrap="true"></Label> -->
 
-  </GridLayout>
+  <!-- </GridLayout> -->
 </GridLayout>
