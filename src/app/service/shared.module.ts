@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { ApiService } from './api.service';
 import { ConfigService } from './config.service';
 import { TodoService } from './todo.service';
+import { ContactService } from './contact.service';
+import { DatabaseService } from './sqlite/sqlite.service';
 
 const MODULES = [
   // Do NOT include UniversalModule, HttpModule, or JsonpModule here
@@ -25,7 +27,10 @@ const COMPONENTS = [
 const PROVIDERS = [
   // ApiService,
   ConfigService,
-  TodoService
+  TodoService,
+  DatabaseService,
+  ContactService
+  //LoginService
 ];
 
 @NgModule({

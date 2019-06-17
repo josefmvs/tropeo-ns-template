@@ -21,45 +21,41 @@
 </ActionBar>
 
 
-<ScrollView class="page">
+<ScrollView class="page" style="margin-top: 5px;">
   <StackLayout>
+    <!-- <Button class="btn btn-primary btn-active" id="button" text="Get Contacts" (tap)="getContacts()"></Button>
+    <Button class="btn btn-primary btn-active" id="button" text="Remove All" (tap)="getRemoveAllContacts()"></Button> -->
 
-    <StackLayout class="list-group" width="100%" *ngFor="let todo of todoSub | async ; trackBy:trackByToodFun;">
-      <GridLayout style="background-color:lightblue;" class="list-group-item" rows="*" columns="auto, *">
-        <Label class="first-label" row="0" col="0" [text]="todo.title"></Label>
-        <Label row="0" col="1" [text]="todo.description"></Label>
-        <Button style="width: 150px;" row="0" col="2" class="btn btn-primary btn-active" id="button" text="Delete"
-          (tap)="deleteRecord(todo.id)"></Button>
-      </GridLayout>
-    </StackLayout>
+    <GridLayout tkExampleTitle tkToggleNavButton>
+
+      <RadListView #myListView [items]="contactList" swipeActions="true"
+        (itemSwipeProgressStarted)="onSwipeCellStarted($event)">
+        <ListViewLinearLayout tkListViewLayout scrollDirection="Vertical" itemInsertAnimation="Default"
+          itemDeleteAnimation="Default"></ListViewLinearLayout>
+
+        <ng-template tkListItemTemplate let-item="item">
+          <StackLayout backgroundColor="white">
+            <StackLayout height="50" orientation="horizontal" marginBottom="2">
+              <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+              <Label style="margin-left: 5px;" class="first-label" [text]="item.firstName"></Label>
+              <Label [text]="item.lastName"></Label>
+            </StackLayout>
+            <StackLayout class="hr-light"></StackLayout>
+          </StackLayout>
+
+
+        </ng-template>
+        <GridLayout *tkListItemSwipeTemplate columns="*,auto" class="gridLayoutLayout">
+          <StackLayout id="delete-view" col="1" height="100%" verticalAlignment="center" class="swipe-right-container"
+            (tap)="onRightSwipeClick($event)">
+            <Label class="p-x-24" [text]="'delete'" horizontalAlignment="center"></Label>
+          </StackLayout>
+        </GridLayout>
+      </RadListView>
+    </GridLayout>
 
   </StackLayout>
 </ScrollView>
 <FAB id="dashboard-fab" (tap)="add()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1"
   text="&#xf013;" class="fab-button fa">
 </FAB>
-<!-- <GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf1ea;"></Label>
-    <Label class="page-placeholder" text="contact list"></Label>
-  </GridLayout>  -->
-<!-- <ScrollView>
-  <StackLayout>
-    <ListView [items]="todoList">
-      <ng-template let-item="item">
-        <Label [text]="item.title"></Label>
-      </ng-template>
-    </ListView>
-    <ListView class="list-group" [items]="todoSub">
-      <ng-template let-item="item">
-        <GridLayout class="list-group-item" rows="*" columns="auto, *">
-          
-          <Label row="0" col="0" [text]="item.title"></Label>
-          <Label row="0" col="1" [text]="item.description"></Label>
-        </GridLayout>
-      </ng-template>
-    </ListView>
-  </StackLayout>
-</ScrollView>
-<FAB id="dashboard-fab" (tap)="add()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1"
-  text="&#xf013;" class="fab-button fa">
-</FAB> -->

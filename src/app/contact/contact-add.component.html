@@ -27,15 +27,16 @@
 </ActionBar>
 
 <GridLayout class="page page-content">
-  <StackLayout [formGroup]="signUpForm">
+  <StackLayout [formGroup]="createContactForm">
 
-    <StackLayout class="p-20">
+    <!-- <StackLayout class="p-20">
       <Label text="Count Todos" class="h1 text-center"></Label>
       <Label [text]="todoSub.length" class="h1 text-center"></Label>
-    </StackLayout>
-    <TextField formControlName="title" hint="Title"></TextField>
-    <TextField formControlName="desc" hint="Description"></TextField>
-    <Button text="sign up" (tap)="onButtonTap()"></Button>
+    </StackLayout> -->
+    <TextField formControlName="firstName" hint="first name"></TextField>
+    <TextField formControlName="lastName" hint="last name"></TextField>
+    <TextField formControlName="age" hint="age"></TextField>
+    <Button text="Save" (tap)="onButtonTap()"></Button>
   </StackLayout>
   <!-- <RadDataForm row="0" tkExampleTitle tkToggleNavButton [source]="todo"></RadDataForm> -->
 

@@ -3,16 +3,14 @@ import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import { Validators,AbstractControl, FormBuilder, FormGroup} from '@angular/forms';
 import * as app from 'tns-core-modules/application';
 import { Store, select } from '@ngrx/store';
-// import { ItemState } from './../states/item.state';
-// import * as itemActions from './../actions/item.actions';
-// import * as fromItems from './../reducers/item.reducer';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { Todo } from './../models/todo.model';
-import { TodoService } from './../service/todo.service';
+// import { Todo } from './../models/todo.model';
+// import { TodoService } from './../service/todo.service';
 import { Observable } from 'rxjs';
 // import {RadDataForm} from 'nativescript-ui-dataform';
 
-
+import { Contact } from './../models/contact.model';
+import { ContactService } from './../service/contact.service';
 
 @Component({
 	selector: 'ContactAdd',
@@ -20,35 +18,39 @@ import { Observable } from 'rxjs';
 	templateUrl: './contact-add.component.html'
 })
 export class ContactAddComponent implements OnInit {
-  title: AbstractControl;
-  desc: AbstractControl;
-  signUpForm: FormGroup; 
-	public _todo = <Todo>{};
-  public todoSub: Observable<Todo>;
-  public todoSubtest = [1,2];
+  firstName: AbstractControl;
+  lastName: AbstractControl;
+  age: AbstractControl;
+  createContactForm: FormGroup; 
+	public _contact = <Contact>{};
+  public contactSub: Observable<Contact>;
+  public contactSubtest = [1,2];
 
-	constructor(private formBuilder:FormBuilder, private _routerExtensions: RouterExtensions, private todoService:TodoService) {
-		  this.signUpForm = this.formBuilder.group({
-            title: ["",Validators.required],
-            desc:["",Validators.required],
+	constructor(private formBuilder:FormBuilder, private _routerExtensions: RouterExtensions, private contactService:ContactService) {
+		  this.createContactForm = this.formBuilder.group({
+            firstName: ["",Validators.required],
+            lastName:["",Validators.required],
+            age:["",Validators.required],
       });
 	}
 
 	ngOnInit() {
-    this.todoSub = this.todoService.list();
+    //this.todoSub = this.todoService.list();
     //this._todo = {'title': 'test', 'description': 'testdesc'}; //new Person("John", 23, "john@company.com", "New York", "5th Avenue", 11);
-    this.title = this.signUpForm.controls['title'];
-    this.desc = this.signUpForm.controls['desc'];
+    this.firstName = this.createContactForm.controls['firstName'];
+    this.lastName = this.createContactForm.controls['lastName'];
+    this.age = this.createContactForm.controls['age'];
 	}
 
   onButtonTap(){
-        let formvalues = this.signUpForm.value;
+        let formvalues = this.createContactForm.value;
         //console.log(formvalues);
        
-        this._todo.title = formvalues.title;
-        this._todo.description = formvalues.desc;
-         console.log(this._todo.title + ' ' + this._todo.description);
-         this.todoService.add(this.todo);
+        this._contact.firstName = formvalues.firstName;
+        this._contact.lastName = formvalues.lastName;
+        this._contact.age = Number(formvalues.age) || 0; //+ formvalues.age;
+         console.log(this._contact.firstName + ' ' + this._contact.lastName);
+         this.contactService.add(this._contact);
          this._routerExtensions.backToPreviousPage();
   }
 
@@ -65,18 +67,8 @@ export class ContactAddComponent implements OnInit {
 	// 	this.store.dispatch(new itemActions.ToggleItemLabel(args.object.checked));
 	// }
 
-	get todo(): Todo {
-        return this._todo;
+	get contact(): Contact {
+        return this._contact;
     }
-
-	// onSubmitAddForm(form) {
-    //     //console.log('addRecords>>>>');
-    //     // console.log(form);
-    //     if(form.valid) {
-    //         this.todoService.add(this._todo);
-    //        // this.router.navigate(['/list']);
-    //     } else {
-    //         console.log('Form Invalid');
-    //     }
-    // }
+    
 }
