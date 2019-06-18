@@ -26,11 +26,7 @@ export class ContactEffects {
         private store: Store<ContactState> //private contactActions: ContactActions
     ) {}
 
-    // @Effect({dispatch: false})
-    // addContact$ = this.actions$.pipe(
-    //      .ofType('[CONTACT] Add'),
-    //      mapTo( console.log("contact add effect") )
-    //      );
+    // NOTE : WHEN EFFECTS RETURNS ACTION, YOU CAN'T BREAKPOINT IN ACTION BUT ON IT'S REDUCER
 
     @Effect()
     loadContacts: Observable<Action> = this.actions$.pipe(
@@ -62,6 +58,8 @@ export class ContactEffects {
             return caught;
         })
     );
+
+    // NOTE : WHEN EFFECTS RETURNS ACTION, YOU CAN'T BREAKPOINT IN ACTION BUT ON IT'S REDUCER
 
     @Effect()
     addingContact: Observable<Action> = this.actions$.pipe(
