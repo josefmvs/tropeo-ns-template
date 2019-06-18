@@ -3,7 +3,11 @@
       Use the NavigationButton as a side-drawer button in Android
       because ActionItems are shown on the right side of the ActionBar
       -->
-  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <NavigationButton
+    ios:visibility="collapsed"
+    icon="res://menu"
+    (tap)="onDrawerButtonTap()"
+  ></NavigationButton>
   <!-- 
       Use the ActionItem for IOS with position set to left. Using the
       NavigationButton as a side-drawer button in iOS is not possible,
@@ -20,42 +24,70 @@
   <Label class="action-bar-title" text="Contact List"></Label>
 </ActionBar>
 
-
 <ScrollView class="page" style="margin-top: 5px;">
   <StackLayout>
     <!-- <Button class="btn btn-primary btn-active" id="button" text="Get Contacts" (tap)="getContacts()"></Button>
     <Button class="btn btn-primary btn-active" id="button" text="Remove All" (tap)="getRemoveAllContacts()"></Button> -->
 
     <GridLayout tkExampleTitle tkToggleNavButton>
-
-      <RadListView #myListView [items]="contactList" swipeActions="true"
-        (itemSwipeProgressStarted)="onSwipeCellStarted($event)">
-        <ListViewLinearLayout tkListViewLayout scrollDirection="Vertical" itemInsertAnimation="Default"
-          itemDeleteAnimation="Default"></ListViewLinearLayout>
+      <RadListView
+        #myListView
+        [items]="contactList"
+        swipeActions="true"
+        (itemSwipeProgressStarted)="onSwipeCellStarted($event)"
+      >
+        <ListViewLinearLayout
+          tkListViewLayout
+          scrollDirection="Vertical"
+          itemInsertAnimation="Default"
+          itemDeleteAnimation="Default"
+        ></ListViewLinearLayout>
 
         <ng-template tkListItemTemplate let-item="item">
-          <StackLayout backgroundColor="white">
+          <StackLayout backgroundColor="white" (tap)="updateContact(item.id)">
             <StackLayout height="50" orientation="horizontal" marginBottom="2">
               <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
-              <Label style="margin-left: 5px;" class="first-label" [text]="item.firstName"></Label>
+              <Label
+                style="margin-left: 5px;"
+                class="first-label"
+                [text]="item.firstName"
+              ></Label>
               <Label [text]="item.lastName"></Label>
             </StackLayout>
             <StackLayout class="hr-light"></StackLayout>
           </StackLayout>
-
-
         </ng-template>
-        <GridLayout *tkListItemSwipeTemplate columns="*,auto" class="gridLayoutLayout">
-          <StackLayout id="delete-view" col="1" height="100%" verticalAlignment="center" class="swipe-right-container"
-            (tap)="onRightSwipeClick($event)">
-            <Label class="p-x-24" [text]="'delete'" horizontalAlignment="center"></Label>
+        <GridLayout
+          *tkListItemSwipeTemplate
+          columns="*,auto"
+          class="gridLayoutLayout"
+        >
+          <StackLayout
+            id="delete-view"
+            col="1"
+            height="100%"
+            verticalAlignment="center"
+            class="swipe-right-container"
+            (tap)="onRightSwipeClick($event)"
+          >
+            <Label
+              class="p-x-24"
+              [text]="'delete'"
+              horizontalAlignment="center"
+            ></Label>
           </StackLayout>
         </GridLayout>
       </RadListView>
     </GridLayout>
-
   </StackLayout>
 </ScrollView>
-<FAB id="dashboard-fab" (tap)="add()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1"
-  text="&#xf013;" class="fab-button fa">
+<FAB
+  id="dashboard-fab"
+  (tap)="add()"
+  icon="~/images/add_2x.png"
+  backgroundColor="#F7B700"
+  rippleColor="#f1f1f1"
+  text="&#xf013;"
+  class="fab-button fa"
+>
 </FAB>
