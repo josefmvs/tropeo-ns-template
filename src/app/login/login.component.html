@@ -1,0 +1,11 @@
+<FlexboxLayout>
+    <StackLayout [formGroup]="loginForm" class="form" [class.dark]="!isLoggingIn">
+        <Image src="~/images/logo.png"></Image>
+
+        <TextField formControlName="email" hint="Email"></TextField>
+        <TextField formControlName="password" secure="true" hint="Password"></TextField>
+
+        <Button [text]="isLoggingIn ? 'Sign in' : 'Sign up'" class="btn btn-primary" (tap)="submit()"></Button>
+        <Button [text]="isLoggingIn ? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()"></Button>
+    </StackLayout>
+</FlexboxLayout>

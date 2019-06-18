@@ -1,0 +1,68 @@
+<ActionBar class="action-bar">
+  <!-- 
+      Use the NavigationButton as a side-drawer button in Android
+      because ActionItems are shown on the right side of the ActionBar
+      -->
+  <!-- <NavigationButton
+      ios:visibility="collapsed"
+      icon="res://menu"
+      (tap)="onDrawerButtonTap()"
+    ></NavigationButton> -->
+  <!-- 
+      Use the ActionItem for IOS with position set to left. Using the
+      NavigationButton as a side-drawer button in iOS is not possible,
+      because its function is to always navigate back in the application.
+      -->
+  <!-- <ActionItem
+      icon="res://navigation/menu"
+      android:visibility="collapsed"
+      (tap)="onDrawerButtonTap()"
+      ios.position="left"
+    >
+    </ActionItem> -->
+  <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBackButtonTap()">
+  </NavigationButton>
+
+  <Label class="action-bar-title" text="Contact Add"></Label>
+</ActionBar>
+
+<GridLayout class="page page-content">
+  <StackLayout [formGroup]="createContactForm">
+
+    <!-- <StackLayout class="p-20">
+      <Label text="Count Todos" class="h1 text-center"></Label>
+      <Label [text]="todoSub.length" class="h1 text-center"></Label>
+    </StackLayout> -->
+    <TextField formControlName="firstName" hint="first name"></TextField>
+    <TextField formControlName="lastName" hint="last name"></TextField>
+    <TextField formControlName="age" hint="age"></TextField>
+    <Button text="Save" (tap)="onButtonTap()"></Button>
+  </StackLayout>
+  <!-- <RadDataForm row="0" tkExampleTitle tkToggleNavButton [source]="todo"></RadDataForm> -->
+
+  <!-- <GridLayout rows="auto, *" columns="auto, *" margin="16dp"> -->
+
+  <!-- <StackLayout class="p-20">
+      <Label text="Required Textfield" class="h1 text-center"></Label>
+      <TextField required hint="fill this out..." [(ngModel)]="textField" #element></TextField>
+      <Label [text]="element.className"></Label>
+      <Button text="" class="btn btn-primary"></Button>
+    </StackLayout> -->
+  <!-- <RadDataForm row="0" tkExampleTitle tkToggleNavButton [source]="person"></RadDataForm> -->
+  <!-- <RadDataForm tkExampleTitle tkToggleNavButton row="0" col="0" colSpan="2" [isReadOnly]="false" [source]="todo">
+      <TKEntityProperty tkDataFormProperty name="title" displayName="Titles" index="0"></TKEntityProperty>
+      
+      <TKEntityProperty hintText="add desc" tkDataFormProperty name="description" displayName="Desc" index="1">
+        <TKPropertyEditor tkEntityPropertyEditor type="Text"></TKPropertyEditor>
+      </TKEntityProperty>
+     
+    </RadDataForm> -->
+  <!-- <Label row="1" col="0" text="{{person.name}}" verticalAlignment="middle" horizontalAlignment="Left" fontSize="16dp"
+      textWrap="true"></Label> -->
+  <!--<Switch row="0" col="1" (checkedChange)="onSwitchChecked($event)" horizontalAlignment="Left" class="switch">
+    </Switch>
+    <Label row="1" colSpan="1" colSpan="2" verticalAlignment="middle" *ngIf="showLabel" horizontalAlignment="center"
+      text="I am a NGRX LABEL!!!" textWrap="true"></Label> -->
+
+  <!-- </GridLayout> -->
+</GridLayout>

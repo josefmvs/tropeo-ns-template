@@ -1,0 +1,96 @@
+<ActionBar class="action-bar">
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <!-- <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <ActionItem text="Item" ios.position="right" android.position="popup">
+        <Label text="&#xf019;" class="far"></Label>
+    </ActionItem>
+    <ActionItem text="Item" ios.position="right" android.position="popup">
+        <Label text="&#xf0f9;" class="fab"></Label>
+    </ActionItem> -->
+    <Label class="action-bar-title" text="Dashboard"></Label>
+    <!-- <ActionItem ios.position="right" android.position="popup" ios.systemIcon="4" android.systemIcon="ic_Add"></ActionItem> -->
+</ActionBar>
+
+<!-- Correct implementation of tabview -->
+<!-- <TabView height="100%">
+    <StackLayout *tabItem="{title: 'Rocket Raccoon'}" class="full rocket">
+        <Label text="test" class="h2 m-t-16 text-center" textWrap="true"></Label>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Harley Quinn'}" class="full harley">
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Hulk'}" class="full hulk">
+    </StackLayout>
+</TabView> -->
+<GridLayout>
+    <ScrollView class="page" style="background-color: lightgray;">
+        <StackLayout>
+           
+            <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                <StackLayout height="300" class="section-container">
+                        <Label text="Chart Here"></Label>
+                        <circularProgressBar [size]="size[2]" [progress]="progress[2]"></circularProgressBar>
+                </StackLayout>
+              
+            </CardView>
+            <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                <StackLayout height="340"  class="section-container">
+                    <SegmentedBar [items]="segmentItems" (selectedIndexChange)="onSelectedIndexChange($event)" class="m-5" ></SegmentedBar>
+                    <GridLayout [visibility]="selectedIndex === 0 ? 'visible' : 'collapsed'" backgroundColor="white">
+                        <!-- <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center"></Label> -->
+                        <Slider minValue="10" maxValue="70" row="0"
+                        col="1"></Slider>
+                       <!-- <Label class="h3" text="70" textWrap="true" row="0" col="2"></Label> -->
+                    </GridLayout>
+                
+                    <GridLayout rows="*" [visibility]="selectedIndex === 1 ? 'visible' : 'collapsed'" backgroundColor="green">
+                            <DatePicker verticalAlignment="center"></DatePicker>
+                        <!-- <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center" color="white"></Label> -->
+                    </GridLayout>
+                
+                    <GridLayout rows="*" [visibility]="selectedIndex === 2 ? 'visible' : 'collapsed'" backgroundColor="red">
+                        <Label [text]="'The new selectedIndex is: ' + selectedIndex" class="m-15 h3 p-5 text-center" color="white"></Label>
+                    </GridLayout>
+                </StackLayout>
+            </CardView>
+            <CardView class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                    <StackLayout height="340"  class="section-container">
+                            <GridLayout height="40" columns="*,*" backgroundColor="white">
+                                <StackLayout col="0" orientation="vertical">
+                                    <Button text="All" (tap)="onTap($event)"></Button>
+                                </StackLayout>
+                                <StackLayout col="1" column="1" orientation="vertical">
+                                    <Button text="Favorites" (tap)="onTap($event)"></Button>
+                                </StackLayout>
+                            </GridLayout>
+                            
+                            <ListView height="300" class="list-group" [items]="data3" (itemTap)="onItemTap($event)">
+                                <ng-template let-item="item">
+                                    <GridLayout class="list-group-item" rows="*" columns="auto, *">
+                                        <Label row="0" col="1" [text]="item.text"></Label>
+                                    </GridLayout>
+                                </ng-template>
+                            </ListView>
+                    </StackLayout>
+                   
+            </CardView>
+        </StackLayout>
+    </ScrollView>
+    <FAB id="dashboard-fab" (tap)="displayActionDialog()" (loaded)="buttonLoaded()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1" text="&#xf013;" class="fab-button fa">
+    </FAB>
+        <!-- <FAB id="dashboard-fab" (tap)="add()" (loaded)="buttonLoaded()" icon="~/images/add_2x.png" backgroundColor="#F7B700" rippleColor="#f1f1f1" text="&#xf013;" class="fab-button fa">
+        </FAB> -->
+</GridLayout>
+  
+
+       
