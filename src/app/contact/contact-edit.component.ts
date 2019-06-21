@@ -93,6 +93,7 @@ export class ContactEditComponent implements OnInit {
 
     public onTap() {
         this.myCommitDataFormComp.dataForm.commitAll();
-        var test = this.contactDetail;
+        this.contactService.edit(this._conctactId, this.contactDetail);
+        this._routerExtensions.backToPreviousPage();
     }
 }

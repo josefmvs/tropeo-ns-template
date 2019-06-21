@@ -85,18 +85,28 @@ export class ContactEffects {
         })
     );
 
-    // @Effect({dispatch: false}) deleteContact$ = this.actions$.pipe(
+    @Effect()
+    updateContact$ = this.actions$.pipe(
+        ofType(ContactActions.UPDATING_CONTACT),
+        switchMap(action =>
+            this.contactService.dbUpdateContact(action["changes"])
+        ),
+        map(contact => ({ type: "[CONTACT] Update", contact: contact })),
+        catchError((err, caught) => {
+            this.store.dispatch(new ContactActions.AddContactError());
+            return caught;
+        })
+    );
+        // .map<Contact>(toPayload)
+        // .mergeMap(contact => console.log('db update contact') );
+
+
+     // @Effect({dispatch: false}) deleteContact$ = this.actions$.pipe(
     //     ofType(ContactActions.REMOVE_CONTACT),
     //     tap((contact) =>
     //         this.contactService.dbRemoveContact(contact['id'])
     //     )
     // );
-
-    //     @Effect()
-    //     updateContact$ = this.actions$
-    //         .ofType('[CONTACT] Update')
-    //         .map<Contact>(toPayload)
-    //         .mergeMap(contact => console.log('db update contact') );
 
     // //this.db.update(birthday)
     //     @Effect()

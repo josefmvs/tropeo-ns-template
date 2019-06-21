@@ -9,6 +9,7 @@ export const ADDING_CONTACT = "[CONTACT] Adding";
 export const REMOVE_CONTACT = "[CONTACT] Remove";
 export const REMOVE_CONTACT_SUCCESS = "[CONTACT] Remove Success";
 export const UPDATE_CONTACT = "[CONTACT] Update";
+export const UPDATING_CONTACT = "[CONTACT] Updating";
 export const ADD_CONTACT_SUCCESS = "[CONTACT] Add Success";
 export const ADD_CONTACT_ERROR = "[CONTACT] Add Error";
 export const GET_CONTACT = "[CONTACT] Get Contact";
@@ -71,10 +72,17 @@ export class GetContactSuccess implements Action {
     }
 }
 
+export class UpdatingContact implements Action {
+    readonly type = UPDATING_CONTACT;
+
+    constructor(public changes) {}
+}
+
+
 export class UpdateContact implements Action {
     readonly type = UPDATE_CONTACT;
 
-    constructor(public id: number, public changes) {}
+    constructor(public contact) {}
 }
 
 export class RemoveContact implements Action {
@@ -109,4 +117,5 @@ export type Actions =
     | LoadContacts
     | RemoveContactSuccess
     | GetContact
-    | GetContactSuccess;
+    | GetContactSuccess 
+    | UpdatingContact;

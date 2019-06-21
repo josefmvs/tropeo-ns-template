@@ -84,7 +84,7 @@ export class ContactService {
     }
 
     public edit(id: number, changes: Contact) {
-        this.store.dispatch(new ContactActions.UpdateContact(id, changes));
+        this.store.dispatch(new ContactActions.UpdatingContact(changes));
     }
 
     public dbGetContacts() {
@@ -156,6 +156,31 @@ export class ContactService {
                         contact.firstName,
                         contact.lastName,
                         contact.age
+                    ]
+                ).then(
+                    id => {
+                        resolve(contact);
+                    },
+                    err => {
+                        console.log("error saving contact");
+                        reject({});
+                    }
+                );
+            });
+        });
+    }
+
+    public dbUpdateContact(contact: Contact) {
+        return new Promise<Object>((resolve, reject) => {
+            //resolve(contact);
+            this.database.getdbConnection().then(db => {
+                db.execSQL(
+                    "update contacts set firstName = ?, lastName = ?, age = ? where id = ?",
+                    [
+                        contact.firstName,
+                        contact.lastName,
+                        contact.age,
+                        contact.id
                     ]
                 ).then(
                     id => {

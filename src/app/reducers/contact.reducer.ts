@@ -38,7 +38,7 @@ export function contactReducers(
             return adapter.addOne(action.payload, state);
 
         case ContactActions.UPDATE_CONTACT:
-            if (state.entities[action.id] === undefined) {
+            if (state.entities[action.contact.id] === undefined) {
                 return state;
             }
 
@@ -48,8 +48,8 @@ export function contactReducers(
 
             return adapter.updateOne(
                 {
-                    id: action.id,
-                    changes: action.changes
+                    id: action.contact.id,
+                    changes: action.contact
                 },
                 state
             );
