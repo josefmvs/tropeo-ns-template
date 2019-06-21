@@ -28,5 +28,23 @@
 
 <GridLayout class="page page-content">
   <!-- <Label class="page-icon fa" text="&#xf1ea;"></Label> -->
-  <Label class="page-placeholder" text="{{ _conctactId }}"></Label>
+  <StackLayout>
+
+    <!-- <TextField formControlName="firstName" hint="first name"></TextField>
+    <TextField formControlName="lastName" hint="last name"></TextField>
+    <TextField formControlName="age" hint="age"></TextField> -->
+    <RadDataForm #myCommitDataForm [commitMode]="commitMode" [source]="contactDetail">
+      <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+      <TKEntityProperty tkDataFormProperty name="firstName" displayName="Name" index="0"></TKEntityProperty>
+      <TKEntityProperty tkDataFormProperty name="lastName" displayName="Last Name" index="1"></TKEntityProperty>
+      <TKEntityProperty tkDataFormProperty type="number" name="age" displayName="Age" index="2">
+        <TKRangeValidator tkEntityPropertyValidators maximum="100" errorMessage="Age exceeded">
+        </TKRangeValidator>
+      </TKEntityProperty>
+    </RadDataForm>
+    <Button text="Save" (tap)="onTap()"></Button>
+  </StackLayout>
+
+
+  <!-- <Button height="500" text="commit manually" (tap)="onTap()" horizontalAlignment="stretch"></Button> -->
 </GridLayout>
